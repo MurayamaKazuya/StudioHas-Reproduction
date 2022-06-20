@@ -1,0 +1,4330 @@
+@charset "UTF-8";
+
+@mixin sp {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin small-tab {
+  @media screen and (max-width:1100px) {
+    @content;
+  }
+}
+
+@mixin big-tab {
+  @media screen and (max-width:1250px) {
+    @content;
+  }
+}
+
+
+
+/*base*/
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  font-size: 62.5%;
+  font-family: a-otf-ryumin-pr6n, serif;
+  font-weight: 500;
+  width: 100%;
+}
+
+body {
+  font-size: 1.3rem;
+}
+
+header {
+  position: relative;
+  width: 100vw;
+}
+
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+footer {
+  background-color: #161616;
+
+  * {
+    color: #fff;
+  }
+}
+
+/*layout*/
+
+.top {
+  position: relative;
+
+  @include small-tab() {
+    margin: 72px 0 0;
+  }
+
+  @include sp() {
+    margin: 102px 0 0;
+  }
+}
+
+.latest {
+  width: calc(100% - 12.5%);
+  margin: 0 auto 115px;
+  padding-top: 70px;
+
+  @include big-tab() {
+    padding-top: 90px;
+    width: calc(100% - 12.8%);
+    margin-bottom: 109px;
+  }
+
+  @include small-tab() {
+    padding-top: 76px;
+    width: calc(100% - 12.8%);
+    margin-bottom: 2.8rem rem;
+
+    .title-area {
+      font-size: 5.8rem;
+      letter-spacing: 2.3px;
+    }
+  }
+
+  @include sp {
+    padding-top: 46px;
+    width: calc(100% - 7%);
+    margin-bottom: 40px;
+
+    .title-area {
+      font-size: calc(41px + ((1vw – 3.2px)*0.7625));
+      letter-spacing: 0.06em;
+      margin-left: 4%;
+    }
+  }
+}
+
+.latest-list {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+
+  @include small-tab() {
+    margin-top: 57px;
+  }
+
+  @include sp {
+    margin-top: 46px;
+  }
+}
+
+.service,
+.study {
+  display: flex;
+  background-color: #161616;
+
+  a {
+    color: #ccc;
+  }
+}
+
+.study {
+  @include sp() {
+    flex-flow: column;
+  }
+}
+
+.design {
+  margin-top: 133px;
+  margin-bottom: 190px;
+
+  @include big-tab() {
+    margin-top: 123px;
+    margin-bottom: 220px;
+  }
+
+  @include small-tab() {
+    margin-top: 82px;
+    margin-bottom: 110px;
+  }
+
+  @include sp() {
+    margin-top: 64px;
+    margin-bottom: 60px;
+  }
+
+  .design-head {
+    margin: 0 auto;
+    width: 83%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include sp() {
+      width: 86%;
+    }
+
+
+    h2 {
+      font-size: 6.7rem;
+      letter-spacing: 0.07em;
+      margin-left: 0px;
+      white-space: nowrap;
+      margin-top: 8px;
+
+      @include small-tab() {
+        font-size: 5.8rem;
+        letter-spacing: 2.3px;
+        margin-top: 0;
+      }
+
+      @include sp() {
+        font-size: 4.1rem;
+        font-size: calc(41px + ((1vw – 3.2px)*0.7625));
+        letter-spacing: 0.06em;
+        margin-top: 0;
+        margin-left: 10%;
+      }
+    }
+
+    p {
+      font-size: 1.35rem;
+      font-family: a-otf-ryumin-pr6n, serif;
+      color: rgba(125, 125, 125, 1);
+      letter-spacing: 0.06em;
+      display: block;
+      position: relative;
+      margin-top: 6px;
+      margin-left: -1px;
+
+      @include small-tab() {
+        font-size: 1.1rem;
+        margin-top: 5px;
+        color: rgba(125, 125, 125, 0.7);
+        letter-spacing: 0.2px;
+      }
+
+      @include sp() {
+        font-size: 1rem;
+        color: rgba(125, 125, 125, 0.8);
+        letter-spacing: 0.03em;
+        margin-top: 4px;
+        margin-left: 10%;
+      }
+    }
+
+    .design-menu {
+      margin: 0 22px 20px 0;
+    }
+  }
+}
+
+.media {
+  width: 84.4%;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 128px;
+
+  .design-head {
+    margin-left: 11px;
+
+    .title-area {
+      h2 {
+        font-size: 7.3rem;
+        letter-spacing: 0.08em;
+        margin-left: 0px;
+        white-space: nowrap;
+      }
+
+      p {
+        font-size: 1.35rem;
+        font-family: a-otf-ryumin-pr6n, serif;
+        color: rgba(125, 125, 125, 1);
+        letter-spacing: 0.06em;
+        display: block;
+        position: relative;
+        margin-top: 6px;
+        margin-left: -1px;
+      }
+    }
+  }
+}
+
+/*module*/
+.nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 100%;
+  padding: 0 50px;
+  height: 181px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 50;
+  transition: all 0.5s ease;
+
+  &::before {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    content: '';
+    height: 1px;
+    background-color: #eeeeee;
+    width: calc(100% - 100px);
+
+    @include small-tab() {
+      width: 95.8%;
+    }
+  }
+
+  @include big-tab() {
+    justify-content: flex-end;
+  }
+
+  @include small-tab() {
+    padding: 0;
+    height: 146px;
+  }
+
+  @include sp() {
+    height: 102px;
+    align-items: inherit;
+  }
+
+  &>* {
+    width: 33%;
+  }
+
+  ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin: 0 0 4px 8px;
+
+    @include big-tab() {
+      display: none;
+    }
+
+    li {
+      margin-left: 58px;
+      letter-spacing: 0.07em;
+      font-size: 1.6rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+      position: relative;
+      font-family: 'Helvetica Neue LT W01_41488878';
+
+      &::before {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #333;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        transition: transform .3s;
+      }
+
+      &:hover::before {
+        transform: scale(1, 1);
+      }
+
+      a {
+        pointer-events: auto;
+
+        &:hover {
+          opacity: 0.5;
+          transition: all 0.35s;
+        }
+      }
+    }
+  }
+}
+
+h1 {
+  font-size: 5.4rem;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.095em;
+  font-family: garamond-premier-pro-display, serif;
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 51.3%;
+  top: 51.5%;
+  transform: translate(-50%, -50%);
+
+  @include big-tab() {
+    font-size: 4.5rem;
+  }
+
+  @include small-tab() {
+    top: 54.1%;
+    left: 51.8%;
+    font-size: 4.6rem;
+    letter-spacing: 0.095em;
+  }
+
+  @include sp() {
+    font-size: 3.1rem;
+    font-size: calc(26px + ((1vw – 3.2px)*0.7625));
+    letter-spacing: 0.09em;
+    left: 46.2%;
+    top: 53%;
+    white-space: nowrap;
+  }
+}
+
+
+.nav-small {
+  height: 115px;
+
+  @include big-tab() {
+    height: 100px;
+  }
+
+  @include small-tab() {
+    height: 116px;
+  }
+
+  h1 {
+    font-size: 4.15rem;
+    letter-spacing: 0.095em;
+  }
+
+  @include sp() {
+    transform: translateY(-115px);
+
+    h1 {
+      font-size: calc(26px + ((1vw – 3.2px)*0.7625));
+      letter-spacing: 0.09em;
+      left: 46.2%;
+      top: 53%;
+      white-space: nowrap;
+    }
+  }
+
+  .humberger {
+
+    @include big-tab() {
+      margin: 0 7.4% 0 auto;
+    }
+
+    @include small-tab() {
+      margin: 0 15.8% 0 auto;
+    }
+
+  }
+}
+
+
+.humberger {
+  position: relative;
+  height: 16px;
+  width: 46px;
+  margin: 0 9.9% 10px auto;
+  cursor: pointer;
+
+  @include big-tab() {
+    margin: 0 7.4% 10px auto;
+  }
+
+  @include small-tab() {
+    margin: 0 15.8% 0 auto;
+  }
+
+  @include sp() {
+    width: 35px;
+    height: 13px;
+    right: 20%;
+    top: 45%;
+    margin: 0 20px 0 auto;
+  }
+
+  span {
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #000;
+
+    &:nth-of-type(1) {
+      top: 0;
+    }
+
+    &:nth-of-type(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:nth-of-type(3) {
+      bottom: 0;
+    }
+  }
+}
+
+.mainvisial {
+  width: calc(100% - 19px);
+  height: calc(100vh - 28px);
+  left: 0px;
+  max-height: 62vw;
+  min-height: 730px;
+  margin: 20px auto 10px;
+  position: relative;
+  margin-bottom: 20px;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+
+  @include big-tab() {
+    min-height: 720px;
+    max-height: inherit;
+    margin-bottom: 0;
+  }
+
+  @include small-tab() {
+    max-height: initial;
+    min-height: initial;
+    height: calc(100vh - 108px);
+    left: 0px;
+  }
+
+  @include sp() {
+    width: calc(100% - 13px);
+    margin: 10px auto;
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+}
+
+.top-text {
+  top: 218px;
+  left: 122px;
+  position: absolute;
+  width: 429px;
+  color: #fff;
+
+  @include big-tab() {
+    width: 338px;
+    top: 200px;
+    left: 90px;
+  }
+
+  @include small-tab() {
+    width: 338px;
+    top: 135px;
+    left: 88px;
+  }
+
+  @include sp() {
+    width: initial;
+    top: 36px;
+    left: 12.5%;
+  }
+
+  .main-text {
+    font-size: 4.35rem;
+    letter-spacing: 0.35em;
+    font-weight: 500;
+    line-height: 1.575;
+    margin-bottom: 40px;
+    font-family: garamond-premier-pro-display, serif;
+    letter-spacing: 0.35em;
+    height: 260px;
+
+    @include big-tab() {
+      margin-bottom: 28px;
+    }
+
+    @include small-tab() {
+      font-size: 3.75rem;
+      line-height: 60px;
+      letter-spacing: 14px;
+      height: 222px;
+      margin-bottom: 27px;
+    }
+
+    @include sp() {
+      font-size: 7.1vw;
+      font-size: calc(23px + ((1vw – 3.2px)*0.7625));
+      line-height: 1.8;
+      letter-spacing: 0.35em;
+      height: 46.9vw;
+      margin-bottom: 28px;
+    }
+
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 2.5;
+    letter-spacing: 0.4px;
+    font-family: 'Helvetica Neue LT W01_55 Roman';
+    color: rgba(255, 255, 255, 0.7);
+    width: 253px;
+
+    @include small-tab() {
+      font-size: 0.9rem;
+      line-height: 27px;
+      width: 230px;
+    }
+
+    @include sp() {
+      font-size: 0.8rem;
+      line-height: 21px;
+      letter-spacing: 0.2px;
+      width: 170px;
+    }
+  }
+}
+
+.title {
+  font-size: 7.1rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-left: 5px;
+  font-family: garamond-premier-pro-display, serif;
+  vertical-align: top;
+
+  @include small-tab() {
+    margin-left: 0;
+  }
+
+  @include sp() {
+    font-size: calc(41px + ((1vw – 3.2px)*0.7625));
+    letter-spacing: 0.06em;
+  }
+}
+
+.sub-title {
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  font-family: a-otf-ryumin-pr6n, serif;
+  color: rgba(125, 125, 125, .8);
+  margin-top: 6px;
+  margin-left: 3px;
+  font-weight: 500;
+
+  @include big-tab() {
+    margin-left: 3.5px;
+    margin-top: 6.5px;
+  }
+
+  @include small-tab() {
+    font-size: 1.1rem;
+    margin-top: 5px;
+    color: rgba(125, 125, 125, 0.7);
+    letter-spacing: 0.2px;
+  }
+
+  @include sp() {
+    font-size: 1rem;
+    color: rgba(125, 125, 125, 0.8);
+    letter-spacing: 0.03em;
+    margin-top: 4px;
+    margin-left: 0px;
+  }
+}
+
+.latest-left {
+  width: 50%;
+  padding-right: 3.1%;
+  padding-bottom: 71px;
+  position: sticky;
+  align-self: flex-end;
+  bottom: 0px;
+
+
+  @include small-tab() {
+    display: none;
+  }
+
+  .latest-img {
+    overflow: hidden;
+    height: 31.5vw;
+
+    a {
+      height: 100%;
+      width: 100%;
+
+      img {
+        object-fit: cover;
+        transition: 0.5s all;
+        transform: scale(1.1, 1.1);
+
+        &:hover {
+          transform: scale(1.2, 1.2);
+
+        }
+      }
+    }
+  }
+
+}
+
+.latest-date {
+  font-size: 1.15rem;
+  font-family: 'Helvetica Neue LT W01_41488878';
+  font-weight: 400;
+  color: #a5a5a5;
+  letter-spacing: 0.09em;
+  margin-top: 36px;
+}
+
+.latest-title {
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  width: 97%;
+  font-weight: 500;
+  line-height: 1.55;
+  margin-top: 12px;
+  margin-left: 0;
+}
+
+
+.latest-cat-area {
+  margin-top: 20px;
+
+  .latest-cat {
+    position: relative;
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    color: #a5a5a5;
+    font-family: 'Helvetica Neue LT W01_41488878';
+    font-weight: 400;
+    margin-top: 16px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #cdb99c;
+      transform: scale(1, 1);
+      transform-origin: left top;
+      transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+    }
+
+    &:hover::before {
+      transform-origin: right top;
+      transform: scale(0, 1);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #cdb99c;
+      transform: scale(0, 1);
+      transform-origin: right top;
+      transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+      transition-delay: 0.3s;
+    }
+
+    &:hover::after {
+      transform-origin: left top;
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.latest-right {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  gap: 9.5%;
+  justify-content: right;
+
+  @include small-tab() {
+    width: 100%;
+    gap: 68px 5.9%;
+    margin-left: 0;
+    justify-content: left;
+  }
+
+  @include sp() {
+    justify-content: space-between;
+    width: 100%;
+    gap: 1.7%;
+    margin-left: 0;
+  }
+
+
+
+
+  li {
+    width: 43.8%;
+    vertical-align: top;
+    padding-bottom: 44px;
+
+    @include small-tab() {
+      width: 29.4%;
+      padding-bottom: 0;
+    }
+
+    @include sp() {
+      width: 49.1%;
+    }
+
+    &:first-child {
+      display: none;
+
+      @include small-tab() {
+        display: block;
+      }
+    }
+
+    &:nth-child(n + 4) {
+      margin-top: 60px;
+
+      @include small-tab() {
+        margin-top: 0;
+      }
+    }
+
+    .latest-img {
+      height: 25vw;
+      width: 100%;
+      overflow: hidden;
+
+      @include small-tab() {
+        height: 19.4vw;
+      }
+
+      @include sp() {
+        height: 44vw;
+      }
+
+
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s all;
+
+        &:hover {
+          transform: scale(1.1, 1.1);
+
+        }
+      }
+    }
+
+    .latest-text {
+
+      @include sp() {
+        margin: 0 auto;
+        width: 95%;
+      }
+
+      .latest-date {
+        font-size: 1rem;
+        font-family: 'Helvetica Neue LT W01_41488878';
+        font-weight: 400;
+        color: #a5a5a5;
+        letter-spacing: 0.09em;
+        margin-top: 29px;
+
+        @include small-tab() {
+          margin-top: 30px;
+          font-size: 0.9rem;
+          letter-spacing: 0.09em;
+          margin-left: 1px;
+        }
+
+        @include sp() {
+          font-size: 1rem;
+          letter-spacing: 0.07em;
+          margin-left: 1px;
+        }
+      }
+
+      .latest-title {
+        font-size: 1.65rem;
+        font-weight: 500;
+        line-height: 1.9;
+        letter-spacing: 0.04em;
+
+        @include big-tab() {
+          font-size: 1.3rem;
+          font-weight: 500;
+          margin-top: 8px;
+          line-height: 23px;
+        }
+
+        @include small-tab() {
+          font-size: 1.4rem;
+          width: 100%;
+          margin: 8px auto 0;
+          line-height: 28px;
+        }
+
+        @include sp() {
+          font-size: calc(11px + ((1vw – 3.2px)*0.7625));
+          letter-spacing: 0.04em;
+          width: 100%;
+          margin: initial;
+          margin-top: 9px;
+          line-height: 1.7;
+        }
+      }
+
+      .latest-cat-area {
+        margin-top: 11px;
+
+        .latest-cat {
+          position: relative;
+          letter-spacing: 0.06em;
+          color: #a5a5a5;
+          font-size: 1rem;
+          font-family: 'Helvetica Neue LT W01_41488878';
+          font-weight: 400;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cdb99c;
+            transform: scale(1, 1);
+            transform-origin: left top;
+            transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+          }
+
+          &:hover::before {
+            transform-origin: right top;
+            transform: scale(0, 1);
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cdb99c;
+            transform: scale(0, 1);
+            transform-origin: right top;
+            transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+            transition-delay: 0.3s;
+          }
+
+          &:hover::after {
+            transform-origin: left top;
+            transform: scale(1, 1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.latest {
+  .title {
+    @include small-tab() {
+      font-size: 5.8rem;
+      letter-spacing: 2.3px;
+      margin-left: 5px;
+    }
+  }
+}
+
+
+.service-left {
+  width: 36.5%;
+  position: relative;
+
+  .img-area {
+    height: 100%;
+
+    .slick-arrow {
+      border: 1px solid #eeeeee;
+      border-radius: 100%;
+      height: 83px;
+      width: 83px;
+      color: transparent;
+      position: absolute;
+      top: -173px;
+      outline: none;
+      transition: all ease .25s;
+      background: #fff;
+      opacity: 1;
+
+      &::before {
+        font-size: 2.9rem;
+        color: #b28850;
+        position: absolute;
+        top: 52%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .slick-next {
+      right: -140%;
+      top: 85%;
+    }
+
+    .slick-prev {
+      left: 210%;
+      top: 85%;
+    }
+
+    .slick-list {
+      height: 100%;
+
+      .slick-track {
+        height: 100%;
+
+
+        li {
+
+          img {
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .title-area {
+    left: 22.1%;
+    top: 125px;
+    position: absolute;
+    color: #fff;
+    z-index: 10;
+
+    .title {
+      font-size: 6.2rem;
+      line-height: 1.2;
+      letter-spacing: 7.6px;
+      margin-top: 6px;
+    }
+
+    .sub-title {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-top: 11px;
+
+    }
+  }
+}
+
+.service-right {
+  width: 60%;
+  padding: 124px 0 254px 1.5%;
+  color: #ccc;
+
+  .title-area-r {
+    display: none;
+
+    @include sp() {
+      display: block;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    font-family: 'Helvetica Neue LT W01_41488878';
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    position: relative;
+    margin: 12px 0 0 81px;
+  }
+
+  ul {
+    margin-top: 40px;
+
+    @include sp() {
+      margin-top: 60px;
+    }
+
+
+    li {
+      margin-top: 30px;
+
+      @include sp() {
+        margin-top: 10px;
+      }
+
+      a {
+        font-size: 4.7rem;
+        font-family: garamond-premier-pro-display, serif;
+        font-variant: small-caps;
+        letter-spacing: 3.5px;
+      }
+    }
+  }
+}
+
+.service {
+  color: #fff;
+  background-color: #161616;
+
+  .service-inner {
+    position: relative;
+    padding-top: 124px;
+    padding-bottom: 260px;
+    display: flex;
+    z-index: 1;
+    width: 100%;
+
+    @include small-tab() {
+      padding-top: 78px;
+      padding-bottom: 276px;
+    }
+
+    @include sp() {
+      flex-direction: column;
+      padding-top: 83px;
+      padding-bottom: 225px;
+    }
+
+    .service-nav-left {
+      margin-left: 8%;
+      width: 42%;
+
+      @include small-tab() {
+        width: 46%;
+        margin-left: 8.3%;
+      }
+
+      @include sp() {
+        margin-left: initial;
+        width: calc(100% - 20%);
+        margin: 0 auto;
+      }
+
+      .service-title-area {
+        .title {
+          font-size: 6.2rem;
+          line-height: 1.2;
+          letter-spacing: 7.6px;
+          margin-top: 6px;
+          font-family: garamond-premier-pro-display, serif;
+          font-weight: 500;
+          text-transform: uppercase;
+          margin-left: 5px;
+
+          @include small-tab() {
+            font-size: 5.1rem;
+            line-height: 1.18;
+            letter-spacing: 0.095em;
+          }
+
+          @include sp() {
+            font-size: 3.3rem;
+            font-size: calc(33px + ((1vw – 3.2px)*0.7625));
+            letter-spacing: 0.09em;
+            display: inline-block;
+            line-height: 30px;
+            margin-top: 0;
+            margin-left: 4%;
+
+            br {
+              display: none;
+            }
+          }
+        }
+
+        .sub-title {
+          line-height: 23px;
+          font-size: 1.3rem;
+          color: rgba(255, 255, 255, 0.8);
+          margin-top: 11px;
+          font-family: a-otf-ryumin-pr6n, serif;
+          letter-spacing: 0.06em;
+          display: block;
+          position: relative;
+          margin-left: -1px;
+
+          @include small-tab() {
+            font-size: 1.1rem;
+            margin-top: 5px;
+            color: rgba(125, 125, 125, 0.7);
+            letter-spacing: 0.2px;
+          }
+
+          @include sp() {
+            font-size: 1rem;
+            margin-top: 25px;
+            margin-left: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            letter-spacing: 0.03em;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: -13px;
+              left: 0px;
+              height: 1px;
+              width: 98%;
+              background-color: rgba(191, 177, 145, 0.4);
+            }
+          }
+        }
+      }
+    }
+
+
+
+    .service-nav-right {
+      width: 48.5%;
+      padding-left: 1.5%;
+
+
+      @include small-tab() {
+        width: 45.5%;
+        padding-left: 4.8%;
+      }
+
+      @include sp() {
+        width: calc(100% - 29%);
+        margin: 49px auto 0;
+        padding-left: 3px;
+      }
+
+      .nav-sub-title {
+        font-size: 1.25rem;
+        font-family: 'Helvetica Neue LT W01_41488878';
+        font-weight: 400;
+        letter-spacing: 1.2px;
+        position: relative;
+        margin-top: 12px;
+        margin-left: 91px;
+        margin-bottom: 60px;
+        opacity: 0.8;
+
+        @include small-tab() {
+          font-size: 1.1rem;
+          letter-spacing: 1.3px;
+          margin-bottom: 43px;
+          margin-left: 81px;
+        }
+
+        @include sp() {
+          display: none;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 68px;
+          height: 1px;
+          background-color: rgba(178, 136, 80, 0.5);
+          top: 51%;
+          left: -81px;
+
+          @include small-tab() {
+            width: 60px;
+            left: -71px;
+          }
+        }
+
+      }
+
+      .service-nav-list {
+        font-size: 4.7rem;
+        font-family: garamond-premier-pro-display, serif;
+        font-variant: small-caps;
+        letter-spacing: 3.5px;
+        margin-top: 0px;
+
+        @include big-tab() {
+          padding-left: 1.8%;
+        }
+
+        @include small-tab() {
+          font-size: 3.9rem;
+          letter-spacing: 2.3px;
+        }
+
+        @include sp() {
+          font-size: 2.5rem;
+          letter-spacing: 0.12em;
+          margin-left: -9px;
+
+          li {
+            opacity: 0.7;
+          }
+        }
+
+
+        li+li {
+          margin-top: 28px;
+
+          @include small-tab() {
+            margin-top: 23px;
+          }
+
+          @include sp() {
+            margin-top: 19px;
+          }
+        }
+
+        .service-list {
+          transition: all ease .6s;
+
+          &:hover {
+            opacity: 1;
+            margin-left: 30px;
+
+            .bar {
+              &::before {
+                opacity: 1;
+                width: 95px;
+              }
+            }
+
+            a span {
+              opacity: 0.7;
+              visibility: visible;
+            }
+          }
+
+          .bar {
+            position: relative;
+            display: inline-block;
+            height: 21px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              height: 1px;
+              width: 0px;
+              background-color: rgba(178, 136, 80, 0.5);
+              top: 48%;
+              right: 9px;
+              transition: all ease 0.6s;
+              opacity: 0;
+            }
+          }
+
+          a {
+            position: absolute;
+            cursor: pointer;
+
+            span {
+              font-family: a-otf-ryumin-pr6n, serif;
+              font-size: 1.1rem;
+              position: absolute;
+              display: inline-block;
+              top: 21px;
+              height: 17px;
+              overflow: hidden;
+              letter-spacing: 0px;
+              margin-left: 27px;
+              visibility: hidden;
+              white-space: nowrap;
+              opacity: 0;
+              transition: all ease .6s;
+              margin-top: 0px;
+            }
+          }
+        }
+      }
+
+      .service-sub-cont {
+        position: absolute;
+        top: 0;
+        left: 40%;
+        right: 0;
+        height: 100%;
+        width: 60%;
+        background-color: #161616;
+        visibility: hidden;
+        opacity: 0;
+        transition: all ease 0.4s;
+
+        .service-sub-close {
+          position: absolute;
+          top: 45px;
+          right: 37px;
+          height: 36px;
+          width: 36px;
+          cursor: pointer;
+
+          span {
+            position: absolute;
+            top: 19px;
+            height: 1px;
+            width: 100%;
+            background-color: #fff;
+
+            &:nth-child(1) {
+              transform: rotate(45deg);
+            }
+
+            &:nth-child(2) {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+
+        .sub-cont-main {
+          width: 51%;
+          margin: 0 auto;
+          opacity: 0;
+          transition: all ease 0.4s;
+
+          .number {
+            font-size: 1.4rem;
+            font-family: 'Helvetica Neue LT W01_41488878';
+            font-weight: 400;
+            letter-spacing: 0.07em;
+            margin-top: 141px;
+            margin-left: 5px;
+            position: relative;
+            display: inline-block;
+
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -6px;
+              width: 104%;
+              left: -7%;
+              height: 1px;
+              background-color: rgba(191, 177, 145, 0.4);
+            }
+          }
+
+          .title {
+            h2 {
+              font-size: 6.1rem;
+              font-family: garamond-premier-pro-display, serif;
+              font-weight: 500;
+              font-variant: small-caps;
+              letter-spacing: 2.9px;
+              padding-top: 21px;
+            }
+
+            span {
+              position: relative;
+              display: block;
+              font-size: 1.1rem;
+              font-family: a-otf-ryumin-pr6n, serif;
+              letter-spacing: 1.2px;
+              margin-top: 5px;
+              margin-left: 1px;
+              opacity: 0.8;
+            }
+          }
+
+          .desc {
+            font-size: 1.3rem;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+            margin-top: 39px;
+            margin-left: 46px;
+            line-height: 2.85;
+            position: relative;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 9px;
+              left: -39px;
+              width: 1px;
+              height: 91%;
+              background-color: rgba(191, 177, 145, 0.4);
+            }
+          }
+
+          .service-btn {
+            font-size: 1.9rem;
+            font-family: 游明朝体, "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+            color: rgb(191, 177, 145);
+            height: 82px;
+            width: 82px;
+            text-align: center;
+            line-height: 82px;
+            margin-top: 37px;
+            display: inline-block;
+            border-radius: 100%;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0.3);
+            border-image: initial;
+            transition: all 0.5s ease 0s;
+
+            &:hover {
+              margin-left: 10px;
+              background-color: #fff;
+            }
+          }
+        }
+
+        .s-active {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      .s-active {
+        width: 60%;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  .service-img-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+
+    @include sp() {
+      display: none;
+    }
+
+    .service-img-left {
+      height: 100%;
+      width: 50%;
+      position: relative;
+
+      .service-img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        background-size: cover;
+        background-position: center center;
+        transition: all ease .6s;
+
+        &::before {
+          transition: all ease .6s;
+          content: "";
+          position: absolute;
+          background-color: #161616;
+          height: 100%;
+          width: 100%;
+          right: 0;
+        }
+      }
+
+      .s-active {
+        opacity: 0.6;
+
+        &::before {
+          width: 27%;
+
+          @include big-tab() {
+            width: 16%;
+          }
+
+          @include small-tab() {
+            width: 5%;
+          }
+        }
+      }
+
+      .s-active2 {
+        opacity: 1;
+
+        &::before {
+          width: 19%;
+        }
+      }
+
+      .service-main-img {
+        background-image: url(../image/main.jpg);
+      }
+
+      .service-about-img {
+        background-image: url(../image/main1.jpg);
+      }
+
+      .service-media-img {
+        background-image: url(../image/main2.jpg);
+      }
+
+      .service-design-img {
+        background-image: url(../image/main3.jpg);
+      }
+
+      .service-works-img {
+        background-image: url(../image/main4.jpg);
+      }
+
+    }
+
+    .service-img-right {
+      width: 50%;
+    }
+  }
+
+}
+
+.design-menu {
+  input {
+    display: none;
+  }
+
+  .menu-text {
+    display: flex;
+    gap: 40px;
+    font-size: 1.45rem;
+
+
+    label {
+      position: relative;
+      cursor: pointer;
+      font-size: 1.45rem;
+      font-family: 'Helvetica Neue LT W01_41488878';
+      letter-spacing: 0.05em;
+
+      &::before {
+        position: absolute;
+        bottom: -11px;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: #c5c5c5;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        transition: transform .3s;
+
+      }
+
+      &:hover::before {
+        transform: scale(1, 1);
+      }
+    }
+  }
+
+  #top:checked~.menu-text label:nth-child(1):before {
+    transform: scale(1, 1);
+  }
+
+  #service:checked~.menu-text label:nth-child(2):before {
+    transform: scale(1, 1);
+  }
+
+  #guide:checked~.menu-text label:nth-child(3):before {
+    transform: scale(1, 1);
+  }
+
+  #works:checked~.menu-text label:nth-child(4):before {
+    transform: scale(1, 1);
+  }
+}
+
+.design {
+  ul {
+    margin-top: 40px;
+    position: relative;
+    cursor: grab;
+
+    @include small-tab() {
+      margin-top: 40px;
+    }
+
+    .slick-list {
+      padding-top: 7px;
+      padding-left: 10vw;
+
+      @include small-tab() {
+        padding-bottom: 2.1rem;
+      }
+
+      @include sp() {
+        padding: 0 0 2.1rem 0;
+      }
+    }
+
+    .slick-dots {
+      position: absolute;
+      top: -160px;
+      right: 2.5%;
+      height: 30px;
+      display: flex;
+      gap: 36px;
+      max-width: 400px;
+
+      @include big-tab() {
+        top: -155px;
+        right: 0.5%;
+        gap: 34px;
+      }
+
+      @include small-tab() {
+        top: -142px;
+        right: -6.5%;
+        gap: none;
+      }
+
+      @include sp() {
+        display: none;
+      }
+
+
+
+      li {
+        width: auto;
+        display: inline;
+
+        @include sp() {
+          display: none;
+        }
+
+
+        &::before {
+          position: absolute;
+          bottom: -11px;
+          left: 50%;
+          content: "";
+          width: 22px;
+          height: 1px;
+          background: #c5c5c5;
+          transform: scale(0, 1);
+          transform-origin: left top;
+          transition: transform .35s;
+
+        }
+
+
+        &:nth-child(1)::before {
+          left: 10%;
+
+          @include small-tab() {
+            left: 0;
+          }
+        }
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+
+        &:active::before {
+          transform: scale(1, 1);
+        }
+
+        &:nth-child(2) {
+          margin-left: 0px;
+
+          &::before {
+            left: 40%;
+          }
+        }
+
+        &:nth-child(3) {
+          margin-left: 20px;
+
+          &::before {
+            left: 30%;
+          }
+        }
+
+        &:nth-child(4) {
+          margin-left: 15px;
+
+          &::before {
+            left: 30%;
+          }
+        }
+
+        button::before {
+          font-size: 1.45rem;
+          font-family: 'Helvetica Neue LT W01_41488878';
+          letter-spacing: 0.05em;
+          opacity: 1;
+
+          @include small-tab() {
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+          }
+        }
+      }
+
+
+
+      li:nth-child(1) button:before {
+        content: "Top";
+      }
+
+      li:nth-child(2) button:before {
+        content: "Service";
+      }
+
+      li:nth-child(3) button:before {
+        content: "Guide";
+      }
+
+      li:nth-child(4) button:before {
+        content: "Works";
+      }
+
+      li.slick-active::before {
+        transform: scale(1, 1);
+      }
+
+    }
+
+  }
+
+  li {
+    @include sp() {
+      padding: 0 6.7vw 0;
+    }
+  }
+
+  .slick-slide {
+    transform: scale(1, 0.7);
+    transition: all .5s ease;
+  }
+
+  .slick-current {
+    transform: scale(1, 1);
+  }
+
+
+
+  .design-content {
+    display: flex;
+    width: 100%;
+
+    @include sp() {
+      flex-flow: column-reverse;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .design-left {
+      width: 39%;
+      margin-left: 6.5%;
+      padding-left: 1%;
+
+      @include big-tab() {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+
+      }
+
+      @include small-tab() {
+        margin-left: 0;
+      }
+
+
+      @include sp() {
+        width: 100%;
+      }
+
+      h3 {
+        font-size: 3rem;
+        font-weight: 300;
+        letter-spacing: 0.07;
+        line-height: 1.85;
+        margin-top: 182px;
+
+        @include big-tab() {
+          margin: 0;
+        }
+
+        @include small-tab() {
+          font-size: 2.5rem;
+          line-height: 1.85;
+        }
+
+        @include sp() {
+          margin-top: 45px;
+          font-size: calc(22px + ((1vw – 3.2px)*0.7625));
+          line-height: 1.8;
+        }
+      }
+
+      h4 {
+        margin-top: 35px;
+        font-size: 1.5rem;
+        font-weight: 100;
+        font-family: garamond-premier-pro-display, serif;
+        letter-spacing: 0.06em;
+        margin-top: 13px;
+        color: #b5b29b;
+
+        @include small-tab() {
+          font-size: 1.1rem;
+          letter-spacing: 0.05em;
+          margin-top: 11px;
+        }
+
+        @include sp() {
+          font-size: 1.2rem;
+          letter-spacing: 0.075em;
+          margin-top: 8px;
+        }
+      }
+
+      p {
+        margin-top: 50px;
+        font-size: 1.25rem;
+        line-height: 2.9;
+
+        @include small-tab() {
+          font-size: 1.1rem;
+          line-height: 3;
+          letter-spacing: 0.04em;
+          margin-top: 37px;
+        }
+
+        @include sp() {
+          font-size: 1.1rem;
+          line-height: 2.8;
+          letter-spacing: 0.05em;
+          margin-top: 28px;
+        }
+      }
+
+      div {
+        margin: 40px 0 120px;
+
+        @include big-tab() {
+          margin-bottom: 0;
+        }
+
+        @include small-tab() {
+          margin: 45px 0 0 0;
+        }
+
+        @include sp() {
+          margin: 31px 0 0 0;
+        }
+
+        a {
+          font-size: 1.25rem;
+          font-weight: 400;
+          color: #333333;
+          letter-spacing: 0.1em;
+          margin-top: 25px;
+          margin-left: 1px;
+          font-family: 'Helvetica Neue LT W01_41488878';
+          position: relative;
+
+          @include small-tab() {
+            font-size: 0.9rem;
+            letter-spacing: 0.095em;
+          }
+
+          @include sp() {
+            font-size: 0.9rem;
+            letter-spacing: 0.095em;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cdb99c;
+            transform: scale(1, 1);
+            transform-origin: left top;
+            transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+
+            @include sp() {
+              bottom: -7px;
+              left: -2%;
+              width: 102%;
+            }
+          }
+
+          &:hover::before {
+            transform-origin: right top;
+            transform: scale(0, 1);
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cdb99c;
+            transform: scale(0, 1);
+            transform-origin: right top;
+            transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+            transition-delay: 0.3s;
+
+            @include sp() {
+              bottom: -7px;
+              left: -2%;
+              width: 102%;
+            }
+          }
+
+          &:hover::after {
+            transform-origin: left top;
+            transform: scale(1, 1);
+          }
+        }
+      }
+    }
+
+
+
+    .design-right {
+      width: 45.5%;
+      height: 45vw;
+
+      @include small-tab() {
+        width: 53%;
+        height: 55vw;
+      }
+
+      @include sp() {
+        width: 100%;
+        height: 76vw;
+        margin: 0 auto;
+      }
+
+      img {
+        height: 100%;
+        object-fit: cover;
+
+        @include sp() {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.media {
+
+  @include sp() {
+    padding-top: 64px;
+    width: 100%;
+  }
+
+  .design-head {
+    @include sp() {
+      margin: 0 auto;
+      width: 86%;
+    }
+
+    .title-area {
+      .title {
+        @include small-tab() {
+          font-size: 5.8rem;
+          letter-spacing: 2.3px;
+        }
+
+        @include sp() {
+          font-size: calc(41px + ((1vw – 3.2px)*0.7625));
+          letter-spacing: 0.06em;
+          margin-left: 4%;
+        }
+      }
+
+      .sub-title {
+        @include small-tab() {
+          font-size: 1.1rem;
+          margin-top: 5px;
+          color: rgba(125, 125, 125, 0.7);
+          letter-spacing: 0.2px;
+        }
+
+        @include sp() {
+          font-size: 1rem;
+          color: rgba(125, 125, 125, 0.8);
+          letter-spacing: 0.03em;
+          margin-top: 4px;
+          margin-left: 4%;
+        }
+      }
+    }
+  }
+
+  .design-content {
+    display: flex;
+    flex-flow: row-reverse;
+    width: 100%;
+    margin: 80px auto 230px;
+    position: relative;
+    align-items: center;
+
+    @include small-tab() {
+      margin: 58px auto 110px;
+    }
+
+    @include sp() {
+      flex-flow: column-reverse;
+      margin: 54px auto 110px;
+      width: 93%;
+    }
+
+    .design-left {
+      width: 52%;
+
+      @include sp() {
+        padding-left: 0;
+        width: 100%;
+      }
+
+      .media-text {
+        width: 45%;
+        margin: 0 auto;
+
+        @include small-tab() {
+          width: 50%;
+        }
+
+        @include sp() {
+          width: 80%;
+          margin: 49px auto 0;
+        }
+      }
+
+      h3 {
+        font-size: 3.1rem;
+        font-weight: 300;
+        line-height: 1.85;
+        letter-spacing: 0.07em;
+        white-space: nowrap;
+
+        @include small-tab() {
+          font-size: 2.7rem;
+          line-height: 1.8;
+          letter-spacing: 0.075em;
+        }
+
+        @include sp() {
+          font-size: calc(22px + ((1vw – 3.2px)*0.7625));
+          line-height: 1.75;
+          letter-spacing: 0.05em;
+        }
+      }
+
+      h4 {
+        display: block;
+        font-size: 1.45rem;
+        font-family: garamond-premier-pro-display, serif;
+        letter-spacing: 0.06em;
+        margin-top: 14px;
+        margin-left: 2px;
+        color: #b5b29b;
+
+        @include small-tab() {
+          font-size: 1.2rem;
+          letter-spacing: 0.075em;
+          margin-top: 10px;
+          margin-left: 2px;
+        }
+
+        @include sp() {
+          font-size: 1.2rem;
+          letter-spacing: 0.075em;
+          margin-top: 10px;
+          margin-left: 2px;
+        }
+      }
+
+      p {
+        font-size: 1.3rem;
+        line-height: 3.2;
+        letter-spacing: 0.08em;
+        margin-top: 39px;
+
+        @include small-tab() {
+          font-size: 1.2rem;
+          line-height: 3.1;
+          letter-spacing: 0.04em;
+          margin-top: 44px;
+          white-space: nowrap;
+        }
+
+        @include sp() {
+          font-size: 1.1rem;
+          line-height: 3.1;
+          letter-spacing: 0.04em;
+          margin-top: 25px;
+        }
+      }
+
+      div {
+        font-size: 1.2rem;
+        margin-top: 42px;
+
+        @include small-tab() {
+          font-size: 1rem;
+          margin-top: 15px;
+          letter-spacing: 0.095em;
+        }
+
+        @include sp() {
+          font-size: 1rem;
+          margin-top: 33px;
+          letter-spacing: 0.06em;
+        }
+
+        a {
+          position: relative;
+          font-family: 'Helvetica Neue LT W01_41488878';
+          font-weight: 400;
+          letter-spacing: 0.1em;
+          margin-top: 25px;
+          margin-left: 1px;
+          transition: all ease .25s;
+          position: relative;
+          display: inline-block;
+
+          @include sp() {
+            margin-top: 0;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cdb99c;
+            transform: scale(1, 1);
+            transform-origin: left top;
+            transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+
+            @include sp() {
+              bottom: -7px;
+              left: -2%;
+              width: 102%;
+            }
+          }
+
+          &:hover::before {
+            transform-origin: right top;
+            transform: scale(0, 1);
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cdb99c;
+            transform: scale(0, 1);
+            transform-origin: right top;
+            transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+            transition-delay: 0.3s;
+
+            @include sp() {
+              bottom: -7px;
+              left: -2%;
+              width: 102%;
+            }
+          }
+
+          &:hover::after {
+            transform-origin: left top;
+            transform: scale(1, 1);
+          }
+        }
+      }
+    }
+
+    .design-right {
+      width: 53%;
+      height: 45vw;
+      overflow: hidden;
+      transition: all ease .5s;
+
+      @include small-tab() {
+        height: 56vw;
+      }
+
+      @include sp() {
+        width: 100%;
+      }
+
+      img {
+        overflow: hidden;
+        height: 45vw;
+        object-fit: cover;
+
+        @include small-tab() {
+          height: 56vw;
+        }
+
+        @include sp() {
+          height: 76vw;
+        }
+      }
+    }
+  }
+}
+
+
+.study {
+  .service-left {
+    width: 44%;
+
+    @include small-tab() {
+      width: 47%;
+    }
+
+    @include sp() {
+      width: 100%;
+      height: 80vw;
+    }
+
+    .title-area {
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding-left: 20%;
+      padding-top: 150px;
+      left: 0;
+      top: 0;
+
+      @include big-tab() {
+        padding-left: 19%;
+        padding-top: 140px;
+      }
+
+      @include small-tab() {
+        padding-top: 120px;
+      }
+
+      @include sp() {
+        display: none;
+      }
+
+      .title {
+        font-size: 6.5rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+
+        @include small-tab() {
+          font-size: 5.5rem;
+          line-height: 1.18;
+          letter-spacing: 0.095em;
+
+        }
+      }
+
+      .sub-title {
+        font-size: 1.35rem;
+        font-family: a-otf-ryumin-pr6n, serif;
+        color: #fff;
+        letter-spacing: 0.13em;
+        display: block;
+        position: relative;
+        margin-top: 10px;
+        margin-left: 5px;
+
+        @include small-tab() {
+          font-size: 1.1rem;
+          margin-top: 11px;
+        }
+      }
+
+
+
+    }
+
+    .study-img-area {
+
+      .slick-arrow {
+        top: inherit;
+        bottom: 60px;
+        background: rgba(255, 255, 255, 0);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        opacity: 1;
+
+        @include big-tab() {
+          bottom: 56px;
+        }
+
+        @include small-tab() {
+          width: 75px;
+          height: 75px;
+          bottom: 50px;
+        }
+
+        @include sp() {
+          width: 5px;
+          height: 5px;
+          border: none;
+          color: #c8c8c8;
+          font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+        }
+
+        &::before {
+          opacity: 1
+        }
+      }
+
+      .slick-next {
+        left: calc(100vw - 149px);
+
+        @include big-tab() {
+          left: calc(100vw - 133px);
+        }
+
+        @include small-tab() {
+          left: calc(100vw - 110px);
+        }
+
+        @include sp() {
+          left: calc(100vw - 45px);
+          top: calc(210% - 54px);
+        }
+
+        &::before {
+          content: "";
+          width: 10px;
+          height: 13px;
+          background-image: url(../image/arrowRight.svg);
+
+          @include small-tab() {
+            width: 8px;
+            height: 11px;
+          }
+
+          @include sp {
+            content: "→";
+            font-size: 1.5rem;
+            color: #9a9a9a;
+            width: initial;
+            height: initial;
+            background-image: initial;
+          }
+        }
+
+
+      }
+
+      .slick-prev {
+        left: calc(100vw - 242px);
+
+        @include big-tab() {
+          left: calc(100vw - 226px);
+        }
+
+        @include small-tab() {
+          left: calc(100vw - 195px);
+        }
+
+        @include sp {
+          top: calc(210% - 54px);
+          left: calc(100vw - 74px);
+          z-index: 20;
+        }
+
+        &::before {
+          content: "";
+          left: 50%;
+          width: 10px;
+          height: 13px;
+          background-image: url(../image/arrowLeft.svg);
+
+          @include small-tab() {
+            width: 8px;
+            height: 11px;
+          }
+
+          @include sp {
+            content: "←/";
+            font-size: 1.5rem;
+            color: #9a9a9a;
+            width: initial;
+            height: initial;
+            background-image: initial;
+          }
+        }
+      }
+    }
+
+    .slick-list {
+      .slick-slide img {
+        transform: scale(1.2);
+        transition: .8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      .slick-current img {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .service-right {
+    padding: 85px 0 0 12%;
+    box-sizing: border-box;
+    width: 56%;
+
+    @include big-tab() {
+      padding: 0 auto;
+    }
+
+    @include small-tab() {
+      width: 40%;
+      padding: 0 auto;
+    }
+
+    @include sp() {
+      width: 100%;
+      padding: 0;
+    }
+
+    ul {
+      @include small-tab() {
+        margin-top: 0;
+      }
+
+      li {
+        margin-top: 25px;
+      }
+    }
+
+    .study-list {
+      margin-bottom: 210px;
+
+      @include small-tab() {
+        margin-bottom: 250px;
+      }
+
+      @include sp() {
+        width: 72%;
+        margin: 0 auto;
+        padding-bottom: 17px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.4rem;
+        font-family: 'Helvetica Neue LT W01_41488878';
+        letter-spacing: -0.1em;
+        display: inline-block;
+        color: #fff;
+
+        @include small-tab() {
+          font-size: 1.1rem;
+          margin-bottom: 31px;
+        }
+
+        @include sp() {
+          font-size: 1rem;
+          margin-bottom: 28px;
+        }
+
+      }
+
+      .underline {
+        position: relative;
+        letter-spacing: 0.05em;
+        margin-left: 3px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -6px;
+          left: -2%;
+          width: 105%;
+          height: 1px;
+          background-color: rgba(232, 202, 164, 0.4);
+
+        }
+      }
+
+      h2 {
+        font-size: 5rem;
+        letter-spacing: 0.05em;
+        font-family: garamond-premier-pro-display, serif;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        color: #fff;
+
+
+        @include small-tab() {
+          font-size: 4.9rem;
+          line-height: 1.2;
+          letter-spacing: 0.05em;
+        }
+
+        @include sp() {
+          font-size: calc(35px + ((1vw – 3.2px)*0.7625));
+          letter-spacing: 0.05em;
+          margin-top: 0;
+        }
+      }
+
+      .study-cat {
+        font-size: 1.2rem;
+        position: relative;
+        width: 100%;
+        font-family: 'Helvetica Neue LT W01_41488878';
+        font-weight: 300;
+        letter-spacing: 0.07em;
+        padding-left: 49px;
+        margin-top: 34px;
+
+        @include big-tab() {
+          padding-left: 51px;
+        }
+
+        @include small-tab() {
+          font-size: 1.1rem;
+          font-family: 'Helvetica Neue LT W01_55 Roman';
+          padding-left: 44px;
+          margin-top: 30px;
+          margin-bottom: 0;
+          letter-spacing: 0.1em;
+          opacity: 0.6;
+        }
+
+        @include sp() {
+          font-size: 1.1rem;
+          opacity: 0.5;
+          padding-left: 40px;
+          margin-top: 29px;
+          margin-bottom: 0;
+          letter-spacing: 0.065em;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 45px;
+          height: 1px;
+          background-color: rgba(232, 202, 164, 0.4);
+          transform: rotate(-48deg);
+          left: -5px;
+          top: 0px;
+
+          @include sp() {
+            width: 39px;
+            height: 1px;
+            transform: rotate(-52deg);
+          }
+        }
+      }
+
+      .study-text {
+        font-size: 1.2rem;
+        line-height: 2.95;
+        letter-spacing: 0.07em;
+        margin-top: 50px;
+        width: 64%;
+        max-width: 277px;
+
+
+        @include small-tab() {
+          font-size: 1.1rem;
+          line-height: 3.3;
+          letter-spacing: 0.04em;
+          margin-top: 50px;
+          margin-bottom: 0;
+          max-width: initial;
+          width: 100%;
+        }
+
+        @include sp() {
+          font-size: 1.1rem;
+          line-height: 2.6;
+          letter-spacing: 0.05em;
+          opacity: 0.7;
+          margin-top: 34px;
+          margin-bottom: 0;
+        }
+      }
+
+      li {
+        @include sp() {
+          margin: 64px 0 100px;
+        }
+
+        div {
+          margin: 0 0 36px;
+
+          @include small-tab() {
+            margin: 0 0 5px;
+          }
+
+
+          @include sp() {
+            margin: 0;
+          }
+
+          a {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-top: 50px;
+            font-family: 'Helvetica Neue LT W01_41488878';
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            font-variant: normal;
+            position: relative;
+            margin-top: 50px;
+            display: inline-block;
+
+            @include small-tab() {
+              font-size: 1rem;
+              margin-top: 35px;
+              letter-spacing: 0.1em;
+              opacity: 0.9
+            }
+
+            @include sp() {
+              margin-top: 26px;
+              letter-spacing: 0.095em;
+              opacity: 0.8
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -8px;
+              left: 0;
+              width: 100%;
+              height: 1px;
+              background-color: #cdb99c;
+              transform: scale(1, 1);
+              transform-origin: left top;
+              transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+            }
+
+            &:hover::before {
+              transform-origin: right top;
+              transform: scale(0, 1);
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -8px;
+              left: 0;
+              width: 100%;
+              height: 1px;
+              background-color: #cdb99c;
+              transform: scale(0, 1);
+              transform-origin: right top;
+              transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+              transition-delay: 0.3s;
+            }
+
+            &:hover::after {
+              transform-origin: left top;
+              transform: scale(1, 1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.about {
+  padding-left: 1%;
+  margin-left: 7%;
+  border-top: 1px solid #eee;
+  padding-top: 125px;
+  margin-bottom: 144px;
+  overflow: hidden;
+
+  @include big-tab() {
+    padding-top: 105px;
+    margin-bottom: 119px;
+  }
+
+  @include small-tab() {
+    margin-left: 7.6%;
+    padding-top: 104px;
+    margin-bottom: 80px;
+  }
+
+  @include sp() {
+    margin-left: 20.5px;
+    padding-top: 65px;
+    margin-bottom: 40px;
+
+    .design-head {
+      margin: 50px 0 0 0;
+
+      @include sp() {
+        margin: 0;
+      }
+    }
+  }
+
+  .title-area {
+    .title {
+      font-size: 6.6rem;
+      letter-spacing: 3.1px;
+      margin-left: 0px;
+      white-space: nowrap;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-family: garamond-premier-pro-display, serif;
+
+      @include small-tab() {
+        font-size: 5.8rem;
+        letter-spacing: 2.3px;
+      }
+
+      @include sp() {
+        font-size: calc(34px + ((1vw – 3.2px)*0.7625));
+        letter-spacing: 0.05em;
+        margin-left: 1.3rem;
+      }
+    }
+
+    .sub-title {
+      font-size: 1.35rem;
+      letter-spacing: 0.06em;
+      font-family: a-otf-ryumin-pr6n, serif;
+      color: rgba(125, 125, 125, 0.8);
+      margin-top: 6px;
+      margin-left: 0;
+      font-weight: 500;
+
+      @include small-tab() {
+        font-size: 1.1rem;
+        margin-top: 5px;
+        color: rgba(125, 125, 125, 0.7);
+        letter-spacing: 0.2px;
+      }
+
+      @include sp() {
+        font-size: 1rem;
+        color: rgba(125, 125, 125, 0.8);
+        letter-spacing: 0.03em;
+        margin-top: 4px;
+        margin-left: 0px;
+
+      }
+    }
+  }
+
+
+
+  .about-cardlist {
+    display: flex;
+    width: 100%;
+    margin: 17px 0 0 150px;
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 6.3vw;
+    cursor: grab;
+    touch-action: pan-y;
+
+    @include big-tab() {
+      margin-left: 80px;
+      padding-left: 20px;
+    }
+
+    @include small-tab() {
+      margin-left: 60px;
+    }
+
+    @include sp() {
+      margin-left: 10px;
+      padding-top: 22px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 108%;
+      height: 87.5%;
+      background-color: #f8f8f8;
+      top: 11.2vw;
+      right: -0.4vw;
+      z-index: -1;
+
+      @include big-tab() {
+        top: 12vw;
+        right: -0.6vw;
+      }
+
+      @include small-tab() {
+        top: 12.4vw;
+        right: -2vw;
+      }
+
+      @include sp() {
+        display: none;
+      }
+    }
+
+
+
+    .slick-arrow {
+      border: 1px solid #eeeeee;
+      border-radius: 100%;
+      height: 83px;
+      width: 83px;
+      position: absolute;
+      top: -113px;
+      transition: all ease .25s;
+      background: #fff;
+
+      @include big-tab() {
+        top: -104px;
+      }
+
+      @include small-tab() {
+        height: 75px;
+        width: 75px;
+      }
+
+
+      @include sp() {
+        font-size: 0;
+        height: 20px;
+        display: block !important;
+        font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+        box-shadow: none;
+        height: initial;
+        width: initial;
+        border: none;
+        color: #989898;
+        top: -92px;
+      }
+
+      &::before {
+        opacity: 1
+      }
+
+
+      @include sp() {
+        width: 5px;
+        height: 5px;
+        border: none;
+        color: #c8c8c8;
+      }
+
+      &::before {
+        font-size: 2.9rem;
+        color: #b28850;
+        position: absolute;
+        top: 52%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .slick-next {
+      right: 311px;
+      transition: all .35s ease;
+
+      @include big-tab() {
+        right: 290px;
+      }
+
+      @include small-tab() {
+        right: 188px;
+      }
+
+      @include sp() {
+        z-index: 20;
+        top: -50px;
+        right: 80px;
+      }
+
+      &::before {
+        content: "";
+        width: 10px;
+        height: 13px;
+        background-image: url(../image/arrowLeft.svg);
+
+        @include small-tab() {
+          width: 8px;
+          height: 11px;
+        }
+
+        @include sp {
+          content: "←/";
+          color: #9a9a9a;
+          font-size: 1.5rem;
+          left: 50%;
+          width: initial;
+          height: initial;
+          background-image: initial;
+        }
+      }
+
+      &:hover {
+        right: 313px;
+      }
+    }
+
+    .slick-prev {
+      left: auto;
+      right: 222px;
+      transition: all .35s ease;
+
+      @include big-tab() {
+        right: 200px;
+      }
+
+      @include small-tab() {
+        right: 106px;
+      }
+
+      @include sp() {
+        z-index: 20;
+        right: 54px;
+        top: -50px;
+      }
+
+      &::before {
+        content: "";
+        left: 50%;
+        width: 10px;
+        height: 13px;
+        background-image: url(../image/arrowRight.svg);
+
+        @include small-tab() {
+          width: 8px;
+          height: 11px;
+        }
+
+        @include sp {
+          content: "→";
+          font-size: 1.5rem;
+          color: #9a9a9a;
+          width: initial;
+          height: initial;
+          background-image: initial;
+        }
+      }
+
+      &:hover {
+        right: 220px;
+      }
+    }
+
+
+    .slick-list {
+      height: 100%;
+      width: 100%;
+
+      @include sp() {
+        padding-bottom: 2.1rem;
+      }
+
+      .slick-track {
+        height: 100%;
+        width: 100%;
+
+        .about-card {
+          width: 26vw;
+          margin-left: 65px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          transition: all ease 0.25s;
+          border-radius: 5px;
+          box-shadow: 3px 3px 10px -3px rgba(0, 0, 0, 0.1);
+          background-color: #fff;
+
+          @include big-tab() {
+            width: 27vw;
+          }
+
+          @include small-tab() {
+            width: 41vw;
+            margin-left: 35px;
+          }
+
+          @include sp() {
+            width: 80vw;
+            margin-left: 21px;
+          }
+
+          &:hover {
+            transform: translateY(-10px);
+
+          }
+
+          .slick-slide {
+            width: 100%;
+
+          }
+
+          a {
+            width: 100%;
+          }
+
+
+          .about-img {
+            height: 21vw;
+            width: 100%;
+            overflow: hidden;
+            cursor: grab;
+
+            @include small-tab() {
+              height: 32.2vw;
+            }
+
+            @include sp() {
+              height: 62vw;
+            }
+
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .about-text-inner {
+            width: 71%;
+            margin: 50px auto 54px;
+
+            @include small-tab() {
+              width: 72%;
+              margin: 35px auto 40px;
+            }
+
+            @include sp() {
+              width: 72%;
+              margin: 38px auto 51px;
+              margin-top: calc(27px + ((1vw – 3.2px)*1.8));
+              margin-bottom: calc(37px + ((1vw – 3.2px)*1.8))
+            }
+          }
+
+          .about-text {
+            width: 100%;
+            display: inline-block;
+            opacity: 1;
+            transition: all ease .35s;
+            cursor: pointer;
+
+
+
+            @include sp() {
+              width: 100%;
+            }
+
+            h3 {
+              font-size: 2.05rem;
+              letter-spacing: 0.05em;
+              font-weight: 400;
+
+              @include small-tab() {
+                font-size: 1.9rem;
+                letter-spacing: 1.1px;
+                margin-top: 7px
+              }
+
+              @include sp() {
+                font-size: calc(20px + ((1vw – 3.2px)*0.7625));
+                margin-top: 5px;
+                letter-spacing: 0.08em;
+              }
+            }
+
+            h4 {
+              font-size: 1.1rem;
+              font-family: 'Helvetica Neue LT W01_41488878';
+              font-weight: 400;
+              letter-spacing: 0.065em;
+              color: #bfb3a2;
+              margin-top: 11px;
+              margin-left: 1px;
+
+              @include small-tab() {
+                font-size: 1rem;
+                letter-spacing: 0.095em;
+                margin-top: 9px;
+              }
+
+              @include sp() {
+                font-size: 1.1rem;
+                color: #b9b9b9;
+                letter-spacing: 0.09em;
+                display: block;
+                margin-top: 8px;
+                margin-left: 1px;
+              }
+            }
+
+            p {
+              font-size: 1.05rem;
+              color: #5e5e5e;
+              line-height: 2.3;
+              letter-spacing: 0.05em;
+              margin-top: 26px;
+              min-height: 5em;
+
+              @include sp() {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.contact {
+  padding-top: 140px;
+  margin-left: 5.7%;
+  border-top: 1px solid #eee;
+  margin-bottom: 245px;
+  display: flex;
+
+  @include small-tab() {
+    margin-left: 8.4%;
+    padding-top: 115px;
+    margin-bottom: 200px;
+  }
+
+  @include sp() {
+    padding-top: 18px;
+    margin-bottom: 110px;
+    margin-left: 3.75%;
+    border: none;
+    padding-left: 13%;
+  }
+
+  .contact-left {
+    width: 37%;
+
+    @include small-tab() {
+      width: 30%;
+    }
+
+    @include sp() {
+      display: none;
+    }
+
+    p {
+      margin-top: 0;
+      padding-top: 0;
+      font-size: 1.35rem;
+      font-family: a-otf-ryumin-pr6n, serif;
+      color: rgba(125, 125, 125, 1);
+      letter-spacing: 0;
+      display: block;
+      position: relative;
+      margin-left: 4px;
+
+      @include small-tab() {
+        font-size: 1.1rem;
+        color: rgba(125, 125, 125, 0.7);
+        letter-spacing: 0.2px;
+      }
+    }
+  }
+
+  .contact-right {
+    width: 67%;
+
+    h2 {
+      font-size: 6.3rem;
+      font-family: garamond-premier-pro-display, serif;
+      font-weight: 500;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 2.6px;
+      margin-top: -14px;
+      margin-left: 0;
+      vertical-align: inherit;
+
+      @include small-tab() {
+        font-size: 5.05rem;
+        letter-spacing: 1.4px;
+      }
+
+      @include sp() {
+        font-size: 3.8rem;
+        font-size: calc(36px + ((1vw – 3.2px)*0.7625));
+        letter-spacing: 0.04em;
+        margin-top: -5px;
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      font-size: 2.1rem;
+      font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+      color: #bfa27a;
+      height: 82px;
+      width: 82px;
+      border-radius: 100%;
+      border: 1px solid #e8e8e8;
+      text-align: center;
+      line-height: 82px;
+      margin-top: 28px;
+      margin-left: -5px;
+      transition: all .35s ease;
+
+      @include small-tab() {
+        font-size: 1.6rem;
+        width: 66px;
+        height: 66px;
+        line-height: 66px;
+        margin-top: 26px;
+      }
+
+      @include sp() {
+        font-size: 1.4rem;
+        width: 62px;
+        height: 62px;
+        line-height: 60px;
+        margin-top: 17px;
+        margin-left: -5px;
+      }
+
+      &:hover {
+        transform: translateX(10px);
+
+      }
+    }
+  }
+}
+
+footer {
+  .inner {
+    width: 80%;
+    margin: 0px auto 0px;
+    padding-top: 131px;
+    position: relative;
+    transition: all ease .8s;
+    transition-delay: 0.15s;
+    box-sizing: content-box;
+
+    @include big-tab() {
+      padding-top: 92px;
+      width: 85%;
+    }
+
+    @include small-tab() {
+      width: 75.9%;
+      margin: 0px auto 0px;
+      padding-top: 100px;
+      position: relative;
+    }
+
+    @include sp() {
+      width: 76%;
+      padding-top: 72px;
+    }
+
+    .footer-top {
+      display: flex;
+
+      @include small-tab() {
+        flex-flow: column;
+      }
+    }
+
+    .f-menu {
+      display: flex;
+
+      @include sp() {
+        flex-wrap: wrap;
+        gap: 46px;
+        border-right: none;
+      }
+
+      .f-menu-area {
+        +.f-menu-area {
+          margin-left: 103px;
+
+          @include small-tab() {
+            margin-left: 77px;
+          }
+
+          @include sp() {
+            margin-left: 0;
+          }
+
+        }
+      }
+
+      h3 {
+        font-size: 1.8rem;
+        font-family: garamond-premier-pro-display, serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        white-space: nowrap;
+        margin-bottom: 18px;
+        padding-top: 5px;
+
+        @include small-tab() {
+          font-size: 1.65rem;
+          letter-spacing: 2.4px;
+          margin-bottom: 19px;
+        }
+      }
+
+      .f-menu-list {
+
+        li {
+          font-size: 1.2rem;
+          opacity: 0.55;
+          font-family: 'Avenir LT W01_35 Light1475496';
+          letter-spacing: 0.5px;
+
+          @include small-tab() {
+            font-size: 1rem;
+            letter-spacing: 0.8px
+          }
+
+          @include sp() {
+            font-size: 1.2rem;
+            opacity: 0.4;
+            letter-spacing: 0.05em
+          }
+
+          +li {
+            margin-top: 14px;
+
+            @include small-tab() {
+              margin-top: 13px;
+            }
+
+            @include sp() {
+              margin-top: 12px;
+            }
+          }
+
+          a {
+            position: relative;
+            padding-left: 14px;
+            display: inline-block;
+            transition: .3s;
+
+            @include sp() {
+              padding-left: 1px;
+            }
+
+            &::before {
+              position: absolute;
+              content: "";
+              top: 5px;
+              left: -1px;
+              width: 3.5px;
+              height: 3.5px;
+              border-top: 1px solid #cdb99c;
+              border-right: 1px solid #cdb99c;
+              transform: rotate(45deg);
+
+              @include sp() {
+                display: none;
+              }
+            }
+
+            &::after {
+              position: absolute;
+              bottom: -6px;
+              left: 15px;
+              content: "";
+              width: calc(96% - 15px);
+              height: 1px;
+              background-color: #cdb99c;
+              transform-origin: right top;
+              transform: scale(0, 1);
+              transition: transform .3s;
+
+              @include sp() {
+                display: none;
+              }
+            }
+
+            &:hover::after {
+              transform: scale(1, 1);
+              transform-origin: left top;
+            }
+          }
+        }
+      }
+    }
+
+    .sns {
+      display: flex;
+      position: absolute;
+      bottom: 43px;
+      right: 40px;
+      z-index: 1;
+
+      @include small-tab() {
+        position: relative;
+        bottom: initial;
+        right: initial;
+        z-index: 1;
+        margin-top: 55px;
+        margin-left: -4px;
+      }
+
+      @include sp() {
+        position: absolute;
+        margin-top: 340px;
+        margin-left: -3px;
+      }
+
+      li {
+        font-size: 1.75rem;
+        height: 53px;
+        width: 53px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 100%;
+        text-align: center;
+        line-height: 52px;
+        background-color: rgba(255, 255, 255, 0);
+
+        @include small-tab() {
+          font-size: 1.4rem;
+          height: 45px;
+          width: 45px;
+          line-height: 45px;
+        }
+
+        @include sp() {
+          font-size: 1.7rem;
+          height: 48px;
+          width: 48px;
+          line-height: 48px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+
+        +li {
+          margin-left: 8px;
+        }
+
+
+        a {
+          width: 100%;
+          height: 100%;
+          border-radius: 100%;
+          display: inline-block;
+          transition: all ease .35s;
+
+          i {
+            color: #ccc;
+            opacity: 0.5;
+            transition: all ease .35s;
+          }
+        }
+
+
+        &:hover {
+          background-color: #fff;
+          transition: all ease .35s;
+        }
+
+      }
+    }
+
+    .info {
+      width: 266px;
+      margin-left: auto;
+      position: relative;
+      padding-right: 0px;
+
+      @include big-tab() {
+        width: 268px;
+        padding-right: 0px;
+      }
+
+      @include small-tab() {
+        width: 284px;
+        margin-left: initial;
+        position: relative;
+        padding-right: initial;
+        margin-top: 50px;
+      }
+
+      @include sp() {
+        width: 100%;
+        max-width: 284px;
+        margin-top: 145px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 112%;
+        background-color: rgba(255, 255, 255, 0.1);
+        left: -118px;
+
+        @include small-tab() {
+          display: none;
+        }
+      }
+
+      h3 {
+        font-size: 2.7rem;
+        font-family: garamond-premier-pro-display, serif;
+        letter-spacing: 3.6px;
+        font-weight: 500;
+        margin-top: 6px;
+
+        @include small-tab() {
+          font-size: 2.6rem;
+          letter-spacing: 0.095em;
+          margin-top: 0px;
+        }
+
+        @include sp() {
+          letter-spacing: 0.11em;
+        }
+      }
+
+      p {
+        opacity: 0.55;
+        font-size: 1.1rem;
+        font-family: 'Avenir LT W01_35 Light1475496';
+        letter-spacing: 0.05em;
+        line-height: 2.1;
+        margin-top: 14px;
+
+        @include small-tab() {
+          font-size: 0.9rem;
+          margin-top: 21px;
+          line-height: 20px;
+        }
+
+        @include sp() {
+          opacity: 0.4;
+          font-size: 1.1rem;
+          letter-spacing: 0.7px;
+          line-height: 22px;
+          margin-top: 19px;
+        }
+      }
+
+      div {
+        height: 12px;
+
+
+        &:nth-of-type(1) {
+          margin-top: 26px;
+
+          @include sp() {
+            margin-top: 20px;
+          }
+        }
+
+        +div {
+          margin-top: 18px;
+          margin-bottom: 5px;
+
+          @include sp() {
+            margin-top: 15px;
+          }
+        }
+
+        a {
+          position: relative;
+          color: #fff;
+          opacity: 0.55;
+          font-size: 1rem;
+          letter-spacing: 0.3px;
+          font-family: 'Avenir LT W01_35 Light1475496';
+
+          @include small-tab() {
+            opacity: 0.55;
+            font-size: 0.9rem;
+            letter-spacing: 0.2px;
+            margin-top: 33px;
+          }
+
+          @include sp() {
+            opacity: 0.45;
+            font-size: 1rem;
+            margin-top: 26px;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cdb99c;
+            transform: scale(1, 1);
+            transform-origin: left top;
+            transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+
+            @include sp() {
+              bottom: -4px;
+            }
+          }
+
+          &:hover::before {
+            transform-origin: right top;
+            transform: scale(0, 1);
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cdb99c;
+            transform: scale(0, 1);
+            transform-origin: right top;
+            transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+            transition-delay: 0.3s;
+          }
+
+          &:hover::after {
+            transform-origin: left top;
+            transform: scale(1, 1);
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      position: relative;
+      margin-top: 255px;
+      padding-bottom: 43px;
+
+      @include small-tab() {
+        margin-top: 300px;
+        padding-bottom: 55px;
+      }
+
+      @include sp() {
+        margin-top: 174px;
+        padding-bottom: 27px;
+      }
+    }
+
+    .copyright {
+      font-size: 1.1rem;
+      font-family: arial, sans-serif;
+      opacity: 0.35;
+      line-height: 2;
+      letter-spacing: 0.08em;
+
+      @include small-tab() {
+        font-size: 0.9rem;
+        line-height: 17px;
+      }
+
+      @include sp() {
+        letter-spacing: 0.4px;
+        line-height: 1.8;
+        opacity: 0.25;
+      }
+    }
+
+    .totop {
+      position: absolute;
+      height: 72px;
+      width: 72px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      right: -105px;
+      bottom: 39px;
+      cursor: pointer;
+      transition: all ease .35s;
+
+      @include big-tab() {
+        right: -80px;
+      }
+
+      @include small-tab() {
+        height: 66px;
+        width: 66px;
+        right: -60px;
+      }
+
+      @include sp() {
+        height: 62px;
+        width: 62px;
+        right: -21.5px;
+        bottom: 28px;
+      }
+
+
+
+
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: 55%;
+        left: 50%;
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid #9f8a6b;
+        border-right: 2px solid #9f8a6b;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        z-index: 0;
+
+        @include small-tab() {
+          width: 7px;
+          height: 7px;
+        }
+
+        @include sp() {
+          width: 6px;
+          height: 6px;
+        }
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transition: all ease 0.35s;
+      }
+    }
+  }
+}
+
+.hum-cont {
+  position: fixed;
+  top: 0;
+  height: 0vh;
+  width: 100%;
+  transition: 1s cubic-bezier(.6, 0, .25, 1);
+  background-color: #fff;
+  z-index: 60;
+  transition-delay: 0.3s;
+  visibility: hidden;
+
+
+
+  .inner {
+    height: 100%;
+    transition: all ease .5s;
+    display: flex;
+  }
+
+  .hum-left {
+    width: 27%;
+    height: 100%;
+
+    .inner {
+      width: 32%;
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+      visibility: hidden;
+
+      @include small-tab() {
+        margin: 0;
+      }
+
+
+      .hum-nav {
+        font-family: garamond-premier-pro-display, serif;
+        font-size: 3.6rem;
+        letter-spacing: 1.3px;
+        font-weight: 300;
+        padding-top: 15vh;
+
+        @include big-tab() {
+          font-size: 4.9rem;
+        }
+
+        @include small-tab() {
+          position: absolute;
+          top: 25px;
+          left: 114px;
+          padding-top: 0;
+
+          @include sp() {
+            top: 35px;
+            left: 170%;
+          }
+
+          ul {
+            font-size: 4rem;
+            font-family: garamond-premier-pro-display, serif;
+            letter-spacing: 0.02em;
+            font-weight: 300;
+            margin-top: 15vw;
+            transition: all ease .5s;
+
+            @include sp() {
+              font-size: 8.5vw;
+              letter-spacing: 0.04em;
+              font-weight: 300;
+              margin-top: 16vw;
+              transition: all ease .5s;
+            }
+          }
+        }
+
+        .hum-list {
+          position: relative;
+          display: inline-block;
+          transition: all ease .3s;
+
+          &:hover {
+            opacity: 0.6;
+          }
+
+          +li {
+            margin-top: 26px;
+
+            @include sp() {
+              margin-top: 17px;
+            }
+          }
+        }
+      }
+
+      .hum-info {
+        position: absolute;
+        bottom: 102px;
+        font-family: 'Helvetica Neue LT W01_41488878';
+        font-size: 1.3rem;
+        letter-spacing: 0.8px;
+        line-height: 29px;
+
+        @include small-tab() {
+          display: none;
+        }
+
+        a::after {
+          position: absolute;
+          bottom: -6px;
+          left: 0;
+          content: '';
+          width: 100%;
+          height: 1px;
+          background: rgba(0, 0, 0, 0.15);
+          transform: scale(0, 1);
+          transform-origin: right top;
+          transition: all 0.35s;
+        }
+
+        .tel {
+          margin-top: 15px;
+        }
+      }
+
+      .hum-sns-sp {
+        display: none;
+
+        @include small-tab() {
+          display: inline-block;
+          position: absolute;
+          left: 106px;
+          bottom: 72px;
+
+          ul {
+            display: flex;
+            font-size: 2rem;
+            opacity: 0.8;
+
+            li+li {
+              margin-left: 14px;
+            }
+          }
+        }
+
+        @include sp() {
+          left: 170%;
+          bottom: 45px;
+
+          ul {
+            font-size: 1.8rem;
+            opacity: 1;
+
+            li+li {
+              margin-left: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    .appear {
+      visibility: visible;
+      animation-duration: 0.5s;
+      animation-name: fade-in;
+    }
+  }
+
+  .hum-middle {
+    width: 60%;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+
+    @include small-tab() {
+      border-left: none;
+      border-right: none;
+    }
+
+
+    .inner {
+      width: 72%;
+      height: 100%;
+      position: relative;
+      margin: 0 auto;
+      display: flex;
+      flex-flow: wrap;
+      visibility: hidden;
+
+      @include small-tab() {
+        display: none;
+      }
+
+
+      .hum-img-area {
+        width: 100%;
+        margin-top: 12.1vh;
+        transition: all ease .5s;
+        position: relative;
+
+        .hum-img {
+          width: 100%;
+          height: 27.2vw;
+          opacity: 0;
+          transition: all ease .5s;
+          overflow: hidden;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        .hum-img-anime {
+          overflow: hidden;
+          position: relative;
+
+          &::before {
+            animation: img-wrap 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            background: #fff;
+            bottom: 0;
+            content: '';
+            left: 0;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 52;
+          }
+
+        }
+
+        .appear {
+          opacity: 1;
+        }
+      }
+
+      .sub-menu-area {
+        position: relative;
+        width: 100%;
+        margin-top: 300px;
+      }
+
+      .sub-menu {
+        width: 100%;
+        margin-left: 9px;
+        opacity: 0;
+        transition: all ease .5s;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+
+          li {
+            font-size: 1.65rem;
+            letter-spacing: 0.06em;
+            display: inline-block;
+            width: 50%;
+            position: relative;
+
+            &:nth-child(n+3) {
+              margin-top: 40px;
+            }
+
+            h2 {
+              font-size: 1.65rem;
+            }
+
+            p {
+              font-size: 1.2rem;
+              font-family: 'Helvetica Neue LT W01_41488878';
+              letter-spacing: 0.9px;
+              display: block;
+              color: #b3b3b3;
+              margin-top: 10.8px;
+              margin-left: 1px;
+              transition: all ease .45s;
+            }
+          }
+        }
+      }
+
+      .appear {
+        display: inline-block;
+        opacity: 1;
+        transition: all ease .5s;
+      }
+    }
+
+    .appear {
+      visibility: visible;
+      animation-duration: 0.5s;
+      animation-name: fade-in;
+    }
+  }
+
+  .hum-right {
+    width: 12.7%;
+    height: 100%;
+
+
+
+
+    .inner {
+      width: 70%;
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+      visibility: hidden;
+
+      .hum-close {
+        position: absolute;
+        width: 27px;
+        height: 27px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 47px;
+        z-index: 4;
+        cursor: pointer;
+        visibility: hidden;
+
+        @include sp() {
+          left: initial;
+          transform: initial;
+          top: 21px;
+          right: 12px;
+          width: 23px;
+          height: 23px;
+        }
+
+        span {
+          position: absolute;
+          height: 1px;
+          width: 100%;
+          background-color: #000;
+
+          &:nth-child(1) {
+            top: 16px;
+            transform: rotate(45deg);
+          }
+
+          &:nth-child(2) {
+            top: 16px;
+            transform: rotate(-45deg);
+          }
+
+
+        }
+
+      }
+
+      .appear {
+        visibility: visible;
+        animation-duration: 0.5s;
+        animation-name: fade-in;
+      }
+
+      .hum-sns {
+        font-size: 1.35rem;
+        font-family: 'Helvetica Neue LT W01_41488878';
+        letter-spacing: 0.7px;
+        line-height: 29px;
+        position: absolute;
+        bottom: 78px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: right;
+
+        @include small-tab() {
+          display: none;
+        }
+
+        a {
+          position: relative;
+
+          ::after {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.15);
+            transform: scale(0, 1);
+            transform-origin: right top;
+            transition: transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1), -webkit-transform 0.4s cubic-bezier(0.08, 0.92, 0.35, 1);
+          }
+        }
+      }
+    }
+
+    .appear {
+      visibility: visible;
+      animation-duration: 0.5s;
+      animation-name: fade-in;
+    }
+  }
+}
+
+
+
+
+
+/*state*/
+.stalker {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background: #ccc;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  transition: all 0.2s ease;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 200;
+}
+
+.active {
+  transform: scale(3);
+}
+
+.swipe {
+  left: -50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 95px;
+  height: 95px;
+  opacity: 1;
+  transition: all 0s ease;
+  background-color: #eee;
+}
+
+.swipe:before {
+  content: "";
+  position: absolute;
+  top: 46%;
+  left: 65%;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #666;
+  border-right: 1px solid #666;
+  transform: rotate(45deg);
+}
+
+.swipe:after {
+  content: "";
+  position: absolute;
+  top: 46%;
+  left: 26%;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #666;
+  border-right: 1px solid #666;
+  transform: rotate(-135deg);
+}
+
+.open {
+  height: 100%;
+  transition: 1s cubic-bezier(.6, 0, .25, 1);
+  transition-delay: 0.3s;
+  visibility: visible;
+  z-index: 100;
+}
+
+.hide {
+  margin-top: -171px;
+  transition: all 1s cubic-bezier(.86, 0, .07, 1);
+}
+
+
+.appear {
+  opacity: 1;
+}
+
+.dark {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 51;
+  background-color: rgba(0, 0, 0, 0);
+  visibility: hidden;
+  transition: all ease .5s;
+}
+
+.darkActive {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 0.5;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes img-wrap {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.opa {
+  opacity: 0;
+}
+
+
+
+
+/*thema*/
